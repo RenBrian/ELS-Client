@@ -9,11 +9,14 @@ import javax.swing.table.DefaultTableModel;
 import BL.UserBL;
 import BLService.UserBLService;
 import PO.UserPO;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 @SuppressWarnings("serial")
 public class UserListUI extends JScrollPane{
 	public UserListUI(){
 		setBounds(0, 0, 545, 458);
+		this.getViewport().setBackground(Color.WHITE);;
 		
 		UserBLService bl=new UserBL();
 		ArrayList<UserPO> list=bl.getList();
@@ -26,6 +29,8 @@ public class UserListUI extends JScrollPane{
 			index++;
 		}
 		JTable table = new JTable();
+		table.getTableHeader().setBackground(SystemColor.inactiveCaptionBorder);
+		table.setBackground(Color.WHITE);
 		table.setModel(new DefaultTableModel(
 			a,
 			new String[] {

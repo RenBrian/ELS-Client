@@ -16,7 +16,7 @@ public interface UserDataService{
 	/*
 	 * 修改
 	 */
-	public void change(UserPO po1,UserPO po2);
+	public void change(UserPO po);
 	/*
 	 * 查
 	 */

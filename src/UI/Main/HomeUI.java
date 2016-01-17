@@ -1,4 +1,4 @@
-package UI;
+package UI.Main;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -11,7 +11,7 @@ import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class HomeUI extends JLayeredPane {
-	
+
 	public HomeUI(){
 		setOpaque(false);
 		setBounds(0, 0, 689, 497);
@@ -20,7 +20,7 @@ public class HomeUI extends JLayeredPane {
 		textField_2.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(65, 224, 208)));
 		add(textField_2);
 		textField_2.setColumns(10);
-		
+
 		JButton button = new JButton("查询");
 		button.setFont(new Font("STZhongsong", Font.PLAIN, 17));
 		button.setBounds(410, 194, 93, 35);
@@ -37,9 +37,9 @@ public class HomeUI extends JLayeredPane {
 		});
 		button.setBorderPainted(false);
 		add(button);
-		
-	
-		
+
+
+
 
 	}
 

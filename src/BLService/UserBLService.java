@@ -14,15 +14,19 @@ public interface UserBLService {
 	 */
 	public ArrayList<UserPO> getList();
 	/*
+	 * 查找用户
+	 */
+	public UserPO get(UserPO po);
+	/*
 	 * 添加用户
 	 */
-	public void addUser(UserPO po);
+	public void add(UserPO po);
 	/*
 	 *删除用户
 	 */
-	public void removeUser(UserPO po);
+	public void remove(UserPO po);
 	/*
 	 * 修改用户
 	 */
-	public void changeUser(UserPO po1,UserPO po2);
+	public void change(UserPO po);
 }

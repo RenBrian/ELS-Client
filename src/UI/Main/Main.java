@@ -1,4 +1,4 @@
-package UI;
+package UI.Main;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -13,7 +13,6 @@ import BL.UserBL;
 import BLService.UserBLService;
 import PO.UserPO;
 import UI.Admin.AdminUI;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,8 +30,8 @@ public class Main extends JFrame {
 	private HomeUI home=new HomeUI();
 	private AdminUI admin=new AdminUI();
 	int xOld=0,yOld=0;
-	
-	
+
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -66,19 +65,19 @@ public class Main extends JFrame {
 					}
 				});
 
-		
+
 	}
-	
+
 	public Main() {
 		setUndecorated(true);
 		setBounds(100, 100, 700,500);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(1, 1, 1, 1));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		Init();
-		
+
 		desktopPane.add(lay);
 		lay.setVisible(true);
 		lay.button.addActionListener(new ActionListener() {
@@ -117,17 +116,17 @@ public class Main extends JFrame {
 				lay.button_2.setVisible(false);
 			}
 		});
-		
-		
+
+
 		desktopPane.setBackground(Color.WHITE);
 		contentPane.add(desktopPane, BorderLayout.CENTER);
-		
+
 		home.setBounds(0, 29, 700, 471);
 		desktopPane.add(home);
-		
+
 		desktopPane.add(admin);
 		admin.setVisible(false);
-		
+
 		login.setBounds(0,29,700, 471);
 		desktopPane.add(login);
 		login.setVisible(false);
@@ -151,13 +150,13 @@ public class Main extends JFrame {
 						lay.button_3.setVisible(true);
 						break;
 					}
-					
+
 				}
 			}
 		});
-		
 
-		
+
+
 
 	}
 
@@ -166,7 +165,7 @@ public class Main extends JFrame {
 		admin.setVisible(false);
 		home.setVisible(false);
 		login.setVisible(false);
-		
+
 		switch(name_ui){
 			case"admin":
 				admin.setVisible(true);

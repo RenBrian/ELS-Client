@@ -1,4 +1,4 @@
-package UI;
+package UI.Main;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -19,7 +19,7 @@ public class Lay extends JLayeredPane{
 		setOpaque(true);
 		setBackground(new Color(64, 224, 208));
 		setBounds(0, 0, 700, 30);
-		
+
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
@@ -30,11 +30,11 @@ public class Lay extends JLayeredPane{
 				button.setBackground(new Color(64, 224, 208));
 			}
 		});
-		button.setBounds(639, 0, 50, 30);
+		button.setBounds(650, 0, 50, 30);
 		button.setBackground(new Color(64, 224, 208));
 		button.setBorderPainted(false);
 		add(button);
-		
+
 		button_1.setBorderPainted(false);
 		button_1.setBackground(new Color(64, 224, 208));
 		button_1.setBounds(0, 0, 68, 30);
@@ -64,10 +64,10 @@ public class Lay extends JLayeredPane{
 			}
 		});
 		add(button_2);
-		
+
 		button_3.setBorderPainted(false);
 		button_3.setBackground(new Color(64, 224, 208));
-		button_3.setBounds(67, 0, 68, 30);
+		button_3.setBounds(66, 0, 68, 30);
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {

@@ -29,6 +29,8 @@ public class UserData implements Serializable,UserDataService{
 				FileOutputStream fs = new FileOutputStream("User.file");
 				ObjectOutputStream os = new ObjectOutputStream(fs);
 				upl = new ArrayList<UserPO>();
+				UserPO admin= new UserPO("admin", "admin","管理员");
+				upl.add(admin);
 				os.writeObject(upl);
 				os.close();
 			} catch (FileNotFoundException e1) {
@@ -43,23 +45,23 @@ public class UserData implements Serializable,UserDataService{
 		}
 	}
 	@Override
-	public UserPO get(UserPO up) {
-			for (UserPO po : upl) {
-				if (po.getID().equals(up.getID())) 
-					return po;
+	public UserPO get(UserPO po) {
+			for (UserPO up : upl) {
+				if (up.getID().equals(po.getID())) 
+					return up;
 			}
 			return null;
 	}
 	@Override
-	public void add(UserPO up) {
-		upl.add(up);
+	public void add(UserPO po) {
+		upl.add(po);
 		Output();
 	}
 	@Override
-	public void remove(UserPO up) {
+	public void remove(UserPO po) {
 		UserPO temp = null;
 		for(UserPO user:upl){
-			if(user.getID().equals(up.getID())){
+			if(user.getID().equals(po.getID())){
 				temp=user;
 			}
 		}
@@ -68,9 +70,11 @@ public class UserData implements Serializable,UserDataService{
 
 	}
 	@Override
-	public void change(UserPO up1, UserPO up2) {
-		remove(up1);
-		add(up2);
+	public void change(UserPO po) {
+		for(UserPO up:upl){
+			if(up.getID().equals(po.getID()))
+				up=po;
+		}
 		Output();
 	}
 	@Override
@@ -91,8 +95,6 @@ public class UserData implements Serializable,UserDataService{
 	}
 	
 	public static void main(String[] args) {
-//		UserPO a = new UserPO("admin", "admin","管理员");
-//		ul.addUser(a);
 		UserData ul = new UserData();
 			for (UserPO po : ul.upl) {
 				System.out.println(po.getID() + po.getPassword()+po.getRole());

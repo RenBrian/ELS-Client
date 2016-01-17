@@ -3,32 +3,23 @@ package UI.Admin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
 import UI.Common.MyButton;
+import UI.Common.MyLay;
 
 @SuppressWarnings("serial")
-public class AdminUI extends JLayeredPane{
+public class AdminUI extends MyLay{
 	public AdminUI(){
-		setBounds(0,30, 700, 470);
 		
 		UserListUI list=new UserListUI();
-		list.setBounds(0, 0, 545, 470);
+		list.setBounds(0, 0, this.getWidth()-130, this.getHeight());
 		add(list);
 		
 		JTextField textField = new JTextField();
-		textField.setBounds(553, 31, 110, 21);
+		textField.setBounds(880, 31, 110, 28);
 		add(textField);
 		textField.setColumns(10);
-		
-		MyButton btnNewButton = new MyButton("账号查找");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewButton.setBounds(552, 74, 111, 23);
-		add(btnNewButton);
 
 		MyButton btnNewButton2 = new MyButton("添加账号");
 		btnNewButton2.addActionListener(new ActionListener() {
@@ -37,17 +28,16 @@ public class AdminUI extends JLayeredPane{
 				a.setVisible(true);
 			}
 		});
-		btnNewButton2.setBounds(552, 126, 111, 23);
-		add(btnNewButton2);
 		
-		MyButton button = new MyButton("确认");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+		MyButton btnNewButton = new MyButton("账号查找");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		button.setBounds(553, 409, 110, 23);
-		add(button);
+		btnNewButton.setBounds(880, 75, 111, 34);
+		add(btnNewButton);
+		btnNewButton2.setBounds(880, 197, 111, 34);
+		add(btnNewButton2);
 	}
 
 }

@@ -17,6 +17,7 @@ public class MyButton extends JButton{
 	}
 	public void Init(){
 		this.setBorderPainted(false);
+		this.setBounds(0, 0, 30, 30);
 		this.setBackground(new Color(64,224,208));
 		addMouseListener(new MouseAdapter() {
 			@Override

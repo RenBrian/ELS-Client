@@ -3,13 +3,17 @@ package UI.Main;
 import java.awt.EventQueue;
 
 import javax.swing.JOptionPane;
+
 import BL.UserBL;
 import BLService.UserBLService;
 import PO.UserPO;
 import UI.Admin.AdminUI;
 import UI.Common.MyFrame;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
 public class Main extends MyFrame {
@@ -86,6 +90,13 @@ public class Main extends MyFrame {
 		login.button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Login();
+			}
+		});
+		login.textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+				if(arg0.getKeyChar()==KeyEvent.VK_ENTER)
+					Login();
 			}
 		});
 	}

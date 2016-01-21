@@ -8,7 +8,7 @@ import BL.UserBL;
 import BLService.UserBLService;
 import PO.UserPO;
 import UI.Admin.AdminUI;
-import UI.Common.MyFrame;
+import UI.Common.MainFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +16,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
-public class Main extends MyFrame {
+public class Main extends MainFrame {
 
 	private boolean isLogin=false;
 	private LoginUI login=new LoginUI();

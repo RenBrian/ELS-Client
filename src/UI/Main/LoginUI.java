@@ -4,22 +4,22 @@ import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import UI.Common.MyButton;
-import UI.Common.MyLay;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
-public class LoginUI extends MyLay {
+public class LoginUI extends JLayeredPane {
 	JButton button = new MyButton("登录");
 	JTextField textField = new JTextField();
 	JTextField textField_1 = new JPasswordField();
 
 	public LoginUI(){
-
+		this.setBounds(0, 30, 1000, 670);
 		textField.setBounds(409,203 ,145 , 21);
 		textField.setColumns(10);
 		add(textField);

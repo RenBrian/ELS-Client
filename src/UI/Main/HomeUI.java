@@ -5,19 +5,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
 import UI.Common.DigitField;
-import UI.Common.MyLay;
-
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
-public class HomeUI extends MyLay {
+public class HomeUI extends JLayeredPane {
 
 	public HomeUI(){
+		this.setBounds(0, 30, 1000, 670);
 		JTextField textField_2 = new DigitField();		
 		textField_2.addKeyListener(new KeyAdapter() {
 			@Override

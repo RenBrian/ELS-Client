@@ -3,15 +3,15 @@ package UI.Admin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
 import UI.Common.MyButton;
-import UI.Common.MyLay;
 
 @SuppressWarnings("serial")
-public class AdminUI extends MyLay{
+public class AdminUI extends JLayeredPane{
 	public AdminUI(){
-		
+		this.setBounds(0, 30, 1000, 670);
 		UserListUI list=new UserListUI();
 		list.setBounds(0, 0, this.getWidth()-130, this.getHeight());
 		add(list);
@@ -24,7 +24,7 @@ public class AdminUI extends MyLay{
 		MyButton btnNewButton2 = new MyButton("添加账号");
 		btnNewButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				UserInfoUI a=new UserInfoUI(null,"新建");
+				UserInfoUI a=new UserInfoUI();
 				a.setVisible(true);
 			}
 		});

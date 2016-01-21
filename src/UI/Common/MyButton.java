@@ -16,6 +16,7 @@ public class MyButton extends JButton{
 		Init();
 	}
 	public void Init(){
+		this.setFocusPainted(false);
 		this.setBorderPainted(false);
 		this.setBounds(0, 0, 30, 30);
 		this.setBackground(new Color(64,224,208));

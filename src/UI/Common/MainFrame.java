@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
  
 
 @SuppressWarnings("serial")
@@ -44,6 +45,7 @@ public class MainFrame extends MyFrame{
 		Initbutton5();
 	}
 	private void Initbutton1(){
+		button1.setFont(new Font("Serif", Font.BOLD, 12));
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

@@ -1,14 +1,12 @@
 package UI.Main;
 
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 
 import UI.Common.DigitField;
+import UI.Common.MyButton;
+
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -31,20 +29,10 @@ public class HomeUI extends JLayeredPane {
 		add(textField_2);
 		textField_2.setColumns(10);
 
-		JButton button = new JButton("查询");
+		MyButton button = new MyButton("查询");
 		button.setFont(new Font("STZhongsong", Font.PLAIN, 17));
 		button.setBounds(534, 285, 93, 35);
-		button.setBackground(new Color(65, 224, 208));
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				button.setBackground(Color.CYAN);
-			}
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				button.setBackground(new Color(65, 224, 208));
-			}
-		});
+
 		button.setBorderPainted(false);
 		add(button);
 

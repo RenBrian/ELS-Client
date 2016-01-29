@@ -1,17 +1,14 @@
 package UI.Admin;
 
 import UI.Common.MyButton;
-
-import javax.swing.JDesktopPane;
+import UI.Common.MyDesktop;
 
 import javax.swing.JLabel;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 @SuppressWarnings("serial")
-public class UserInfoUI extends JDesktopPane {
+public class UserInfoUI extends MyDesktop {
 
 	public MyButton button_1 = new MyButton("确认");
 	JLabel label = new JLabel("账号：");
@@ -24,20 +21,17 @@ public class UserInfoUI extends JDesktopPane {
 	public UserInfoUI() {
 		setBackground(Color.WHITE);
 		this.setBounds(0, 0, 450, 350);
-		label.setBounds(69, 73, 54, 25);
+		label.setBounds(80, 74, 54, 25);
 		add(label);
 		
-		label_1.setBounds(69, 124, 54, 25);
+		label_1.setBounds(80, 145, 54, 25);
 		add(label_1);
 		
-		label_2.setBounds(69, 178, 54, 25);
+		label_2.setBounds(80, 212, 54, 25);
 		add(label_2);
+
 		
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		button_1.setBounds(334, 267, 82, 23);
+		button_1.setBounds(340, 295, 82, 23);
 		add(button_1);
 
 	}

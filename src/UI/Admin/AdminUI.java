@@ -15,7 +15,7 @@ public class AdminUI extends JLayeredPane{
 		UserListUI list=new UserListUI();
 		list.setBounds(0, 0, this.getWidth()-130, this.getHeight());
 		add(list);
-		
+
 		JTextField textField = new JTextField();
 		textField.setBounds(880, 31, 110, 28);
 		add(textField);
@@ -24,14 +24,15 @@ public class AdminUI extends JLayeredPane{
 		MyButton btnNewButton2 = new MyButton("添加账号");
 		btnNewButton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				UserInfoUI a=new UserInfoUI();
+				Add_UserUI a=new Add_UserUI();
 				a.setVisible(true);
 			}
 		});
-		
+
 		MyButton btnNewButton = new MyButton("账号查找");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 			}
 		});
 		btnNewButton.setBounds(880, 75, 111, 34);

@@ -8,12 +8,12 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MyDesktop extends JDesktopPane{
+public class MyDesktopPane extends JDesktopPane{
 	public JButton btnNewButton = new MyButton("x");
 	public JLayeredPane layeredPane = new MyTitle();
-	
+
 //	public MyLay lay=new MyLay();
-	public MyDesktop() {
+	public MyDesktopPane() {
 		setBackground(Color.WHITE);
 		layeredPane.setBounds(0, 0, 450, 30);
 		add(layeredPane);
@@ -27,16 +27,16 @@ public class MyDesktop extends JDesktopPane{
 				btnNewButton.setBackground(new Color(64,224,208));
 			}
 		});
-		
 
-		btnNewButton.setFont(new Font("Segoe UI Light", Font.PLAIN, 23));
+
+		btnNewButton.setFont(new Font("Segoe UI Semilight", Font.PLAIN, 23));
 		btnNewButton.setBounds(405, 0, 45, 30);
 		layeredPane.add(btnNewButton);
 //		layeredPane.setBounds(320, 89, -201, -24);
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 }

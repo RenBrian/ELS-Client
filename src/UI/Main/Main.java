@@ -2,28 +2,26 @@ package UI.Main;
 
 import java.awt.EventQueue;
 
+import UI.Common.MainFrame;
+import UI.Common.MyButton;
+
+import java.awt.event.ActionListener;
+
 import javax.swing.JOptionPane;
 
-import BL.UserBL;
-import BLService.UserBLService;
-import PO.UserPO;
-import UI.Admin.AdminUI;
-import UI.Common.MainFrame;
+import BL.OrderBL;
+import BLService.OrderBLService;
+import PO.Receipt.OrderPO;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class Main extends MainFrame {
 
-	private boolean isLogin=false;
-	private LoginUI login=new LoginUI();
 	private HomeUI home=new HomeUI();
-	private AdminUI admin=new AdminUI();
-	
-	
+
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,105 +37,39 @@ public class Main extends MainFrame {
 
 
 	public Main() {
+		desktopPane.btnNewButton.setSize(45, 39);
+		desktopPane.layeredPane.setBounds(0, 0, 1000, 39);
+		desktopPane.btnNewButton.setLocation(955, 0);
 
-		button1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-					Goto("login");
-					login.textField.setText("");
-					login.textField_1.setText("");
-					button2.setVisible(true);
-					button1.setVisible(false);
+		MyButton btnNewButton = new MyButton("登录");
+		btnNewButton.setFont(new Font("宋体", Font.BOLD, 14));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoginUI login=new LoginUI();
+				login.setVisible(true);
 			}
 		});
-		button2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Goto("home");
-				if(!isLogin){
-					button1.setVisible(true);
+		btnNewButton.setBounds(0, 0, 68, 39);
+		desktopPane.layeredPane.add(btnNewButton);
+		this.setBounds(200, 25, 1000, 700);
+		home.idField.setFont(new Font("宋体", Font.PLAIN, 18));
+		home.idField.setBounds(322, 286, 297, 35);
+		home.button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OrderBLService bl=new OrderBL();
+				OrderPO order=bl.find(home.idField.getText());
+				if(order==null){
+					JOptionPane.showMessageDialog(null, "订单不存在", "", JOptionPane.ERROR_MESSAGE);
 				}else{
-					button5.setVisible(true);
+
 				}
-				button2.setVisible(false);
 			}
 		});
-		button3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				button3.setVisible(false);
-				Goto("home");
-				button5.setVisible(false);
-				button2.setVisible(false);
-				button1.setVisible(true);
-				isLogin=false;
-			}
-		});
-		button5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Goto("admin");
-				button2.setVisible(true);
-				button5.setVisible(false);
-			}
-		});
-		
+		home.setSize(1000, 663);
+		home.setLocation(0, 37);
 		desktopPane.add(home);
 		home.setVisible(true);
 
-		desktopPane.add(admin);
-		admin.setVisible(false);
 
-		login.setVisible(false);
-		desktopPane.add(login);
-		
-		login.button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Login();
-			}
-		});
-		login.textField_1.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				if(arg0.getKeyChar()==KeyEvent.VK_ENTER)
-					Login();
-			}
-		});
-	}
-
-
-	private void Goto(String name_ui){
-		admin.setVisible(false);
-		home.setVisible(false);
-		login.setVisible(false);
-
-		switch(name_ui){
-			case"admin":
-				admin.setVisible(true);
-				break;
-			case"home":
-				home.setVisible(true);
-				break;
-			case"login":
-				login.setVisible(true);
-		}
-	}
-	
-	public void Login(){
-		UserBLService user=new UserBL();
-		UserPO po=new UserPO(login.textField.getText(),login.textField_1.getText(),null);
-		String result=user.Login(po);
-		if(result.equals("密码错误")){
-			JOptionPane.showMessageDialog(null, "密码错误", "",JOptionPane.ERROR_MESSAGE);
-			return;
-		}else if(result.equals("账号不存在")){
-			JOptionPane.showMessageDialog(null, "账号不存在", "", JOptionPane.ERROR_MESSAGE);
-			return;
-		}else{
-			switch(result){
-			case"管理员":
-				Goto("admin");
-				isLogin=true;
-				button1.setVisible(false);
-				button3.setVisible(true);
-				break;
-			}
-		}
 	}
 }

@@ -18,6 +18,8 @@ import javax.swing.JPasswordField;
 
 import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
 
 public class Add_UserUI extends MyFrame {
 
@@ -49,6 +51,7 @@ public class Add_UserUI extends MyFrame {
 		setBounds(100, 100, 450, 350);
 
 		UserInfoUI desktopPane = new UserInfoUI();
+		desktopPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(192, 192, 192)));
 		getContentPane().add(desktopPane, BorderLayout.CENTER);
 
 		JTextField idfield = new JTextField("");

@@ -4,23 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.Vector;
-import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 public class Daf extends JFrame {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
 
@@ -54,16 +50,14 @@ public class Daf extends JFrame {
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		contentPane.add(desktopPane, BorderLayout.CENTER);
-		
-		JLabel lblNewLabel = new JLabel();
-		lblNewLabel.setBounds(128, 10, 252, 213);
-		Icon icon=new ImageIcon("login.jpg");
-		lblNewLabel.setIcon(icon);
-		desktopPane.add(lblNewLabel);
-		
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 239, 251);
+		desktopPane.add(scrollPane);
 
 
-		
+
+
 
 	}
 }

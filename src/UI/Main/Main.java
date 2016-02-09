@@ -15,10 +15,14 @@ import PO.Receipt.OrderPO;
 
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
-@SuppressWarnings("serial")
 public class Main extends MainFrame {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private HomeUI home=new HomeUI();
 
 
@@ -37,6 +41,8 @@ public class Main extends MainFrame {
 
 
 	public Main() {
+
+		this.setBounds(200, 25, 1000, 700);
 		desktopPane.btnNewButton.setSize(45, 39);
 		desktopPane.layeredPane.setBounds(0, 0, 1000, 39);
 		desktopPane.btnNewButton.setLocation(955, 0);
@@ -51,9 +57,8 @@ public class Main extends MainFrame {
 		});
 		btnNewButton.setBounds(0, 0, 68, 39);
 		desktopPane.layeredPane.add(btnNewButton);
-		this.setBounds(200, 25, 1000, 700);
 		home.idField.setFont(new Font("宋体", Font.PLAIN, 18));
-		home.idField.setBounds(322, 286, 297, 35);
+		home.idField.setBounds(302, 285, 297, 35);
 		home.button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OrderBLService bl=new OrderBL();
@@ -65,6 +70,8 @@ public class Main extends MainFrame {
 				}
 			}
 		});
+		home.button.setBackground(new Color(230, 230, 250));
+		home.button.setBounds(598, 285, 121, 35);
 		home.setSize(1000, 663);
 		home.setLocation(0, 37);
 		desktopPane.add(home);

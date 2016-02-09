@@ -3,9 +3,14 @@ package UI.Main;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import BL.UserBL;
+import BLService.UserBLService;
+import PO.UserPO;
+import UI.Admin.AdminUI;
 import UI.Common.MainFrame;
 import UI.Common.MyButton;
 import java.awt.event.ActionListener;
@@ -13,15 +18,18 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import java.awt.Font;
 
-@SuppressWarnings("serial")
 public class LoginUI extends MainFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton button = new MyButton("登录");
-	JTextField textField = new JTextField();
-	JPasswordField textField_1 = new JPasswordField();
+	JTextField idField = new JTextField();
+	JPasswordField keyField = new JPasswordField();
 
 	public LoginUI(){
 
-		this.setBounds(450,200,429,330);
+		this.setBounds(500,200,429,330);
 		desktopPane.btnNewButton.setLocation(384, 0);
 		desktopPane.layeredPane.setBounds(0, 0, 429, 176);
 		desktopPane.setBackground(new Color(247, 250, 253));
@@ -30,17 +38,17 @@ public class LoginUI extends MainFrame {
 		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 99));
 		lblNewLabel.setBounds(140, 52, 171, 79);
 		desktopPane.layeredPane.add(lblNewLabel);
-		textField.setForeground(Color.BLACK);
+		idField.setForeground(Color.BLACK);
 
-		textField.setBounds(137,186 ,175 , 32);
-		textField.setColumns(10);
-		textField.setOpaque(false);
-		desktopPane.add(textField);
+		idField.setBounds(137,186 ,175 , 32);
+		idField.setColumns(10);
+		idField.setOpaque(false);
+		desktopPane.add(idField);
 
-		textField_1.setBounds(137, 218,175 , 32);
-		textField_1.setColumns(10);
-		textField_1.setOpaque(false);
-		desktopPane.add(textField_1);
+		keyField.setBounds(137, 218,175 , 32);
+		keyField.setColumns(10);
+		keyField.setOpaque(false);
+		desktopPane.add(keyField);
 
 		JLabel label = new JLabel("账号");
 		label.setBounds(90, 186, 45, 32);
@@ -51,6 +59,18 @@ public class LoginUI extends MainFrame {
 		desktopPane.add(label_1);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+			UserBLService bl=new UserBL();
+			UserPO po=new UserPO(idField.getText(),String.valueOf(keyField.getPassword()),null);
+			String result=bl.Login(po);
+//			System.out.println(result);
+			if(result.equals("密码错误")){
+				JOptionPane.showMessageDialog(null, "密码错误", "", JOptionPane.ERROR_MESSAGE);
+				return;
+			}else if(result.equals("管理员")){
+				AdminUI admin=new AdminUI();
+				admin.setVisible(true);
+				dispose();
+			}
 			}
 		});
 

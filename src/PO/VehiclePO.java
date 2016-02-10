@@ -24,10 +24,6 @@ public class VehiclePO implements Serializable{
 
 	public VehiclePO() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getId_Vehicle() {
-		return id_Vehicle;
 	}
 	public VehiclePO(String id_Vehicle, String id_Card, String id_Engine, Date buy, Date service) {
 		super();
@@ -36,6 +32,9 @@ public class VehiclePO implements Serializable{
 		this.id_Engine = id_Engine;
 		this.buy = buy;
 		Service = service;
+	}
+	public String getId_Vehicle() {
+		return id_Vehicle;
 	}
 	public void setId_Vehicle(String id_Vehicle) {
 		this.id_Vehicle = id_Vehicle;

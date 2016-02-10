@@ -1,12 +1,18 @@
 package PO;
 
-public class GoodsPO {
+import java.io.Serializable;
+
+public class GoodsPO implements Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private int number;
 	private double trueWeight;
 	private double sizeWeight;
 	private double length,width,height;
-	
+
 	public GoodsPO(String name,int number,double trueWeight,double length,double width,double height){
 		this.name=name;
 		this.number=number;
@@ -16,7 +22,7 @@ public class GoodsPO {
 		this.height=height;
 		this.sizeWeight=length*width*height;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -72,5 +78,56 @@ public class GoodsPO {
 	public void setHeight(double height) {
 		this.height = height;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(height);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(length);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + number;
+		temp = Double.doubleToLongBits(sizeWeight);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(trueWeight);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(width);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GoodsPO other = (GoodsPO) obj;
+		if (Double.doubleToLongBits(height) != Double.doubleToLongBits(other.height))
+			return false;
+		if (Double.doubleToLongBits(length) != Double.doubleToLongBits(other.length))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (number != other.number)
+			return false;
+		if (Double.doubleToLongBits(sizeWeight) != Double.doubleToLongBits(other.sizeWeight))
+			return false;
+		if (Double.doubleToLongBits(trueWeight) != Double.doubleToLongBits(other.trueWeight))
+			return false;
+		if (Double.doubleToLongBits(width) != Double.doubleToLongBits(other.width))
+			return false;
+		return true;
+	}
+
+
+
 }

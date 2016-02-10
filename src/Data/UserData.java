@@ -38,7 +38,7 @@ public class UserData implements Serializable,UserDataService{
 	}
 	@Override
 	public void change(UserPO po) {
-		int index=upl.indexOf(get(po));
+		int index=upl.indexOf(po);
 		upl.set(index, po);
 		data.saveList(upl);
 	}

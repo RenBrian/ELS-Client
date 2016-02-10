@@ -43,14 +43,6 @@ public class UserPO implements Serializable{
 	public String getRole(){
 		return role;
 	}
-//	public boolean equals(UserPO po){
-//		if(po==null)
-//			return false;
-//		if(id.equals(po.getID())&&password.equals(po.getPassword())&&role.equals(po.getRole()))
-//			return true;
-//		return false;
-//
-//	}
 
 	@Override
 	public int hashCode() {
